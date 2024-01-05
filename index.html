@@ -41,7 +41,7 @@
             <input type="range" value="0" id="progress">
 
             <div class="controls">
-                <div><i class="fa-solid fa-backward"></i></div>
+                <div><i onClick="playPrev()" class="fa-solid fa-backward"></i></div>
                 <div><i onClick="playPause()" class="fa-solid fa-play" id="ctrlIcon"></i></div>
                 <div><i onClick="playNext()" class="fa-solid fa-forward"></i></div>
                   
@@ -119,11 +119,6 @@
         ];
 
 
-        // let trackName = document.getElementById("track-name")
-        // let artist = document.getElementById("artist")
-        // let next = document.getElementsByClassName("fa-forward")
-        // let prev = document.getElementsByClassName("fa-backward")
-        // let songSrc = document.getElementById("song-src").src;
         let songCount = 0
 
         function playNext(){
@@ -152,6 +147,32 @@
                 song.play();
             }
 
+        }
+
+        function playPrev(){
+            if (songCount == 2){
+                songCount = songCount - 1
+                console.log(songCount)
+
+                currentSong = tracks[songCount]
+                songname = currentSong.name
+                artist = currentSong.artist
+                songSrc = currentSong.path
+                document.getElementById('track-name').innerText = songname
+                document.getElementById('artist').innerText = artist
+                document.getElementById('song').src = songSrc
+                song.play();
+            } else if (songCount == 1){
+                songCount = songCount - 1
+                currentSong = tracks[songCount]
+                songname = currentSong.name
+                artist = currentSong.artist
+                songSrc = currentSong.path
+                document.getElementById('track-name').innerText = songname
+                document.getElementById('artist').innerText = artist
+                document.getElementById('song').src = songSrc
+                song.play();
+            }
         }
 
 
