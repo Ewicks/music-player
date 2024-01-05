@@ -124,28 +124,28 @@
         // let next = document.getElementsByClassName("fa-forward")
         // let prev = document.getElementsByClassName("fa-backward")
         // let songSrc = document.getElementById("song-src").src;
-        let currentSong = 0
+        let songCount = 0
 
         function playNext(){
 
-            if (currentSong == 0){
-                currentSong = currentSong + 1
-                currentSong = tracks[currentSong]
+            if (songCount == 0){
+                songCount = songCount + 1
+                console.log(songCount)
+
+                currentSong = tracks[songCount]
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
-                console.log(songSrc)
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
                 song.play();
-            } if (currentSong == 1){
-                currentSong = currentSong + 1
-                currentSong = tracks[currentSong]
+            } else if (songCount == 1){
+                songCount = songCount + 1
+                currentSong = tracks[songCount]
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
-                console.log(songSrc)
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
