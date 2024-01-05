@@ -14,7 +14,6 @@
 
     <div class="container">
         <div class="music-player">
-                        
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <h1>Welcome to music player</h1>
@@ -22,9 +21,6 @@
                         <a class="subtitle" href="#">Play Now</p>
                         <a class="subtitle" href="#">Exit</a>
                     </div>
-              
-               
-                
             </div>
             <nav>
                 
@@ -36,18 +32,18 @@
                 </div>
             </nav>
             <img src="media/468-thumbnail.png" class="song-img" alt="">
-            <h1>Despacito</h1>
-            <p>Luis Fonsi</p>
+            <h1 id="track-name">Despacito</h1>
+            <p id="artist">Luis Fonsi</p>
 
             <audio id="song">
-                <source src="media/Firework.mp3" type="audio/mpeg">
+                <source id="song-src" src="media/Firework.mp3" type="audio/mpeg">
             </audio>
             <input type="range" value="0" id="progress">
 
             <div class="controls">
                 <div><i class="fa-solid fa-backward"></i></div>
                 <div><i onClick="playPause()" class="fa-solid fa-play" id="ctrlIcon"></i></div>
-                <div><i class="fa-solid fa-forward"></i></div>
+                <div><i onClick="playNext()" class="fa-solid fa-forward"></i></div>
                   
                 
             </div>
@@ -55,7 +51,6 @@
     </div>
 
     <script>
-
         let progress = document.getElementById("progress");
         let song = document.getElementById("song");
         let ctrlIcon = document.getElementById("ctrlIcon");
@@ -98,6 +93,68 @@
         function closeNav() {
         document.getElementById("mySidenav").style.width = "0%";
         }
+
+
+        // changing songs
+
+        let tracks = [
+            {
+                name: "Firework",
+                artist: "katy Perry",
+                image: "",
+                path: "media/Firework.mp3",
+            },
+            {
+                name: "Once Dance",
+                artist: "Drake",
+                image: "",
+                path: "media/onedance.mp3"
+            },
+            {
+                name: "You Need Me, I Don't Need You",
+                artist: "Ed Sheeran",
+                image: "",
+                path: "media/you-need-me.mp3"
+            },
+        ];
+
+
+        // let trackName = document.getElementById("track-name")
+        // let artist = document.getElementById("artist")
+        // let next = document.getElementsByClassName("fa-forward")
+        // let prev = document.getElementsByClassName("fa-backward")
+        // let songSrc = document.getElementById("song-src").src;
+        let currentSong = 0
+
+        function playNext(){
+
+            if (currentSong == 0){
+                currentSong = currentSong + 1
+                currentSong = tracks[currentSong]
+                songname = currentSong.name
+                artist = currentSong.artist
+                songSrc = currentSong.path
+                console.log(songSrc)
+                document.getElementById('track-name').innerText = songname
+                document.getElementById('artist').innerText = artist
+                document.getElementById('song').src = songSrc
+                song.play();
+            } if (currentSong == 1){
+                currentSong = currentSong + 1
+                currentSong = tracks[currentSong]
+                songname = currentSong.name
+                artist = currentSong.artist
+                songSrc = currentSong.path
+                console.log(songSrc)
+                document.getElementById('track-name').innerText = songname
+                document.getElementById('artist').innerText = artist
+                document.getElementById('song').src = songSrc
+                song.play();
+            }
+
+        }
+
+
     </script>
     
 </body>
