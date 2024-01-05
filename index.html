@@ -31,7 +31,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
             </nav>
-            <img src="media/468-thumbnail.png" class="song-img" alt="">
+            <img src="media/katy-perry.jpeg" id="img" alt="">
             <h1 id="track-name">Despacito</h1>
             <p id="artist">Luis Fonsi</p>
 
@@ -101,19 +101,19 @@
             {
                 name: "Firework",
                 artist: "katy Perry",
-                image: "",
+                image: "media/katy-perry.jpeg",
                 path: "media/Firework.mp3",
             },
             {
                 name: "Once Dance",
                 artist: "Drake",
-                image: "",
+                image: "media/drake.jpeg",
                 path: "media/onedance.mp3"
             },
             {
                 name: "You Need Me, I Don't Need You",
                 artist: "Ed Sheeran",
-                image: "",
+                image: "media/ed-sheeran.png",
                 path: "media/you-need-me.mp3"
             },
         ];
@@ -123,14 +123,16 @@
 
         function playNext(){
 
+
             if (songCount == 0){
                 songCount = songCount + 1
-                console.log(songCount)
 
                 currentSong = tracks[songCount]
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
+                image = currentSong.image
+                document.getElementById('img').src = image
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
@@ -141,6 +143,8 @@
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
+                image = currentSong.image
+                document.getElementById('img').src = image
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
@@ -158,6 +162,8 @@
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
+                image = currentSong.image
+                document.getElementById('img').src = image
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
@@ -168,6 +174,8 @@
                 songname = currentSong.name
                 artist = currentSong.artist
                 songSrc = currentSong.path
+                image = currentSong.image
+                document.getElementById('img').src = image
                 document.getElementById('track-name').innerText = songname
                 document.getElementById('artist').innerText = artist
                 document.getElementById('song').src = songSrc
