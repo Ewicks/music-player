@@ -97,7 +97,7 @@
 
         // changing songs
 
-        let tracks = [
+        const tracks = [
             {
                 name: "Firework",
                 artist: "katy Perry",
@@ -121,66 +121,51 @@
 
         let songCount = 0
 
+       
+
         function playNext(){
 
-
-            if (songCount == 0){
-                songCount = songCount + 1
-
-                currentSong = tracks[songCount]
-                songname = currentSong.name
-                artist = currentSong.artist
-                songSrc = currentSong.path
-                image = currentSong.image
-                document.getElementById('img').src = image
-                document.getElementById('track-name').innerText = songname
-                document.getElementById('artist').innerText = artist
-                document.getElementById('song').src = songSrc
-                song.play();
-            } else if (songCount == 1){
-                songCount = songCount + 1
-                currentSong = tracks[songCount]
-                songname = currentSong.name
-                artist = currentSong.artist
-                songSrc = currentSong.path
-                image = currentSong.image
-                document.getElementById('img').src = image
-                document.getElementById('track-name').innerText = songname
-                document.getElementById('artist').innerText = artist
-                document.getElementById('song').src = songSrc
-                song.play();
+            for (let i = 0; i < tracks.length; i++) {
+                console.log(i)
+                if (i == songCount){
+                    songCount = songCount + 1
+                    currentSong = tracks[songCount]
+                    songname = currentSong.name
+                    artist = currentSong.artist
+                    songSrc = currentSong.path
+                    image = currentSong.image
+                    document.getElementById('img').src = image
+                    document.getElementById('track-name').innerText = songname
+                    document.getElementById('artist').innerText = artist
+                    document.getElementById('song').src = songSrc
+                    song.play();
+                    break
+                }
             }
 
         }
 
         function playPrev(){
-            if (songCount == 2){
-                songCount = songCount - 1
-                console.log(songCount)
 
-                currentSong = tracks[songCount]
-                songname = currentSong.name
-                artist = currentSong.artist
-                songSrc = currentSong.path
-                image = currentSong.image
-                document.getElementById('img').src = image
-                document.getElementById('track-name').innerText = songname
-                document.getElementById('artist').innerText = artist
-                document.getElementById('song').src = songSrc
-                song.play();
-            } else if (songCount == 1){
-                songCount = songCount - 1
-                currentSong = tracks[songCount]
-                songname = currentSong.name
-                artist = currentSong.artist
-                songSrc = currentSong.path
-                image = currentSong.image
-                document.getElementById('img').src = image
-                document.getElementById('track-name').innerText = songname
-                document.getElementById('artist').innerText = artist
-                document.getElementById('song').src = songSrc
-                song.play();
+
+            for (let i = 0; i < tracks.length; i++) {
+                console.log(i)
+                if (i == songCount){
+                    songCount = songCount - 1
+                    currentSong = tracks[songCount]
+                    songname = currentSong.name
+                    artist = currentSong.artist
+                    songSrc = currentSong.path
+                    image = currentSong.image
+                    document.getElementById('img').src = image
+                    document.getElementById('track-name').innerText = songname
+                    document.getElementById('artist').innerText = artist
+                    document.getElementById('song').src = songSrc
+                    song.play();
+                    break
+                }
             }
+            
         }
 
 
